@@ -28,11 +28,11 @@ def adj_matrix(model,numclasses):
         adj_matrix[k:k+m.weight.shape[0],kk:kk+m.weight.shape[1]] = m.weight.detach().cpu().numpy()
         kk += m.weight.shape[1]
 
-  # low_tri_ind = np.tril_indices(dim, 0) 
-  # adj_matrix.T[low_tri_ind] = adj_matrix[low_tri_ind]
+  low_tri_ind = np.tril_indices(dim, 0) 
+  adj_matrix.T[low_tri_ind] = adj_matrix[low_tri_ind]
   adj_matrix = np.absolute(adj_matrix)
   adj_matrix = np.where(adj_matrix>0,1,0)
-  # assert np.allclose(adj_matrix,np.transpose(adj_matrix))
+  assert np.allclose(adj_matrix,np.transpose(adj_matrix))
   return adj_matrix
 
 
