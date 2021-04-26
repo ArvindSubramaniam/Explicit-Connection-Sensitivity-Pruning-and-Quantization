@@ -1,2 +1,2 @@
-# Deep-Pruning-Quantization-Gradient-approach
-Deep-Pruning-Quantization-Gradient-approach
+# Deep-Pruning-Quantization-approach
+Deep-Pruning-Quantization-approach
