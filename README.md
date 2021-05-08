@@ -6,7 +6,7 @@ Explicit Connection Sensitivity Pruning and Quantization
 ####Running baseline models:\
 models:                         --model : ["VGG16", "ResNet34", "ResNet50"] :default - VGG16 \
 datasets:                     --dataset :["CIFAR10", "CIFAR100"] : default - ResNet34 \
-pruning type(global/layerwise): --prunetype: [True, False]  : defualt - False # layerwise pruning is not the defualt instead global pruning is defualt.\
+pruning type(global/layerwise): --prunetype: [True, False]  : default - False # layerwise pruning is not the default instead global pruning is default.\
 learning rate:                   --lr    :                   : default - 0.1\      
 num_epochs :                    --epochs :                    :defualt - 70\
 weightdecay:                    --weightdecay:                :default - 0.0005\
@@ -16,6 +16,6 @@ retaining weight fraction:      --retrain                     :default - 0.05(on
 
 Run command:\
 E.g.:
-python3 main.py --model = "ResNet34" --dataset="CIFAR10" \
+python3 main.py --model = "ResNet34" --dataset="CIFAR10"\
  
  
