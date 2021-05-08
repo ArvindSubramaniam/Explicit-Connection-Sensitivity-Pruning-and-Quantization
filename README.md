@@ -4,7 +4,7 @@ Explicit Connection Sensitivity Pruning and Quantization
 
 
 ####Running baseline models:\
-models:                         --model : ["VGG16", "ResNet34", "ResNet50"] :default - VGG16. 
+models:                         --model : ["VGG16", "ResNet34", "ResNet50"] :default - VGG16 <br/> 
 datasets:                     --dataset :["CIFAR10", "CIFAR100"] : default - ResNet34. 
 pruning type(global/layerwise): --prunetype: [True, False]  : default - False # layerwise pruning is not the default instead global pruning is default. 
 learning rate:                   --lr    :                   : default - 0.1. 
