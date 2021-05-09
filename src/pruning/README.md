@@ -1,18 +1,17 @@
-# Deep-Pruning-approach
-Deep-Pruning-Quantization-Gradient-approach<br/> 
-
-#Reference:<br/>  
+**#Reference:**  
 A. original SNIP Paper implementation: "https://github.com/mil-ad/snip"<br/> 
 B. Even though referenced implementation is done from scratch.<br/> 
 C. Done Layerwise and global pruning.<br/>
 
 
-# How to run baseline SNIP-approach
-Explicit Connection Sensitivity Pruning<br/> 
+# Single Shot Network Pruning:
+Train the model on first batch of the dataset<br/>
+create a mask based on the global threshold or layerwise threshold<br/>
+Use this mask for the rest of the batches in all epochs.
 
 
 
-####Running baseline models:<br/> 
+**####Running baseline models:**
 models:                         --model : ["VGG16", "ResNet34", "ResNet50"] :default - VGG16 <br/> 
 datasets:                     --dataset :["CIFAR10", "CIFAR100"] : default - CIFAR10<br/> 
 pruning type(global/layerwise): --prunetype: [True, False]  : default - False # layerwise pruning is not the default instead global pruning is default<br/> 
