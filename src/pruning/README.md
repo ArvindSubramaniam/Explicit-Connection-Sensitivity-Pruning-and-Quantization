@@ -1,17 +1,18 @@
 # Deep-Pruning-approach
-Deep-Pruning-Quantization-Gradient-approach
+Deep-Pruning-Quantization-Gradient-approach<br/> 
 
-#Reference for: Our code snippets that include: 
-A. original SNIP Paper implementation: "https://github.com/mil-ad/snip"
-B. Even though referenced implementation is done from scratch.
+#Reference:<br/>  
+A. original SNIP Paper implementation: "https://github.com/mil-ad/snip"<br/> 
+B. Even though referenced implementation is done from scratch.<br/> 
+C. Done Layerwise and global pruning.<br/>
 
 
 # How to run baseline SNIP-approach
-Explicit Connection Sensitivity Pruning and Quantization
+Explicit Connection Sensitivity Pruning<br/> 
 
 
 
-####Running baseline models:\
+####Running baseline models:<br/> 
 models:                         --model : ["VGG16", "ResNet34", "ResNet50"] :default - VGG16 <br/> 
 datasets:                     --dataset :["CIFAR10", "CIFAR100"] : default - CIFAR10<br/> 
 pruning type(global/layerwise): --prunetype: [True, False]  : default - False # layerwise pruning is not the default instead global pruning is default<br/> 
