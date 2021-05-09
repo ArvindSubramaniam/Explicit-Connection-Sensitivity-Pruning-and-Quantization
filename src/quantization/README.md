@@ -9,6 +9,8 @@
 2. Quantizing into 8 bit
     - we have used standard 8 bit quantization algorithm to calculate zero points and scaling factor using pytorch functions.
     - this further reduces the memory footprint of the model while impacting model accuracy by few fractions.
+   
+Note: Detail results are present in the Quantization_and_testing.ipynb Notebook
 # Running the quantization Module
 ```
    # import the module using 
