@@ -1,4 +1,4 @@
-# Deep-Pruning-Quantization-Gradient-approach
+# Deep-Pruning-approach
 Deep-Pruning-Quantization-Gradient-approach
 
 #Reference for: Our code snippets that include: 
@@ -6,7 +6,7 @@ A. original SNIP Paper implementation: "https://github.com/mil-ad/snip"
 B. Even though referenced implementation is done from scratch.
 
 
-# Deep-Pruning-Quantization-Gradient-approach
+# How to run baseline SNIP-approach
 Explicit Connection Sensitivity Pruning and Quantization
 
 
