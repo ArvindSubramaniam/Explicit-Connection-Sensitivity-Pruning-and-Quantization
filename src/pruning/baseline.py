@@ -16,6 +16,7 @@ from models.resnet50 import ReNet50
 from models.vgg16 import VGG16
 from utils import argparser
 import argparse
+from train import *
 
 
 
@@ -113,66 +114,6 @@ def mask_app(model, keep_masks):
         layer.weight.data[keep_masks[i].shape==0.] =0.
         layer.weight.register_hook(activate_hook(keep_masks[i]))
         i+=1
-
-
-def training(epoch, model, optimizer, scheduler, criterion, train_loader):
-  model.train()
-  avg_loss = 0.0
-  av_loss=0.0
-  total=0
-  for batch_num, (feats, labels) in enumerate(train_loader):
-      feats, labels = feats.to(device), labels.to(device)
-      
-      optimizer.zero_grad()
-
-      outputs = model(feats)
-
-
-      loss = criterion(outputs, labels.long())
-      loss.backward()
-      
-      optimizer.step()
-      
-      avg_loss += loss.item()
-      av_loss += loss.item() 
-      total +=len(feats) 
-
-      torch.cuda.empty_cache()
-      del feats
-      del labels
-      del loss
-
-  del train_loader
-
-  return avg_loss/total
-
-def validate(epoch, model, criterion, data_loader):
-    with torch.no_grad():
-        model.eval()
-        running_loss, accuracy,total  = 0.0, 0.0, 0
-
-        
-        for i, (X, Y) in enumerate(data_loader):
-            
-            X, Y = X.to(device), Y.to(device)
-            output= model(X)
-            loss = criterion(output, Y.long())
-
-            _,pred_labels = torch.max(F.softmax(output, dim=1), 1)
-            pred_labels = pred_labels.view(-1)
-            
-            accuracy += torch.sum(torch.eq(pred_labels, Y)).item()
-
-            running_loss += loss.item()
-            total += len(X)
-
-            torch.cuda.empty_cache()
-            
-            del X
-            del Y
-        
-        return running_loss/total, accuracy/total
-
 
 if __name__=='__main__':
     parser = argparser.parsing()
