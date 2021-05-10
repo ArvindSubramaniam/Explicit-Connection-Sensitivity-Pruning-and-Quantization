@@ -24,5 +24,5 @@ retaining weight fraction:      --retrain                     :default - 0.05(on
 
 Run command:<br/>   
 E.g.:<br/>   
-python3 main.py --model = "ResNet34" --dataset="CIFAR10"<br/> 
+python3 baseline.py --model = "ResNet34" --dataset="CIFAR10"<br/> 
 
