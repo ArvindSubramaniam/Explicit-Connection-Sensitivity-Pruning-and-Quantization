@@ -60,7 +60,7 @@ Baseline (SNIP)
 python3 baseline.py --model = "ResNet34" --dataset="CIFAR10"
 ```
 
-ECS
+Explicit Connection Sensitivity Pruning (ECS)
 ```
 python3 ECS.py 
 python3 main.py --model = "ResNet34" --dataset="CIFAR10"
