@@ -10,7 +10,7 @@ The following figure serves as a high-level representation of our work.
 
 # Pruning Module
 
-# Reference:  
+# Baseline:  
 A. SNIP Paper implementation: "https://github.com/mil-ad/snip" (This is not the official implementation, but its the one we referred)<br/> 
 B. Even though referenced implementation is done from scratch.<br/> 
 C. Done Layerwise and global pruning.<br/>
@@ -22,9 +22,21 @@ Our approach uses both weights and gradients to decide which parameters are redu
 
 ![image](https://user-images.githubusercontent.com/37202614/118072561-14b84480-b378-11eb-9c67-f8f8ec9c80d1.png)
 
+Pruning File Structure
 
-
-
+```
+src
+└── pruning
+       ├── ECS.py
+       ├── baseline.py
+       ├── train.py          
+       └── main.py        
+```
+ 
+ ```ECS.py``` - Code for our pruning approach.
+ ```baseline.py``` - Code for the baseline pruning approach (SNIP).
+ ```train.py``` - Code for training and testing models.
+ ```main.py``` - Code for running pruning (SNIP and oour approach).
 
 Train the model on first batch of the dataset<br/>
 create a mask based on the global threshold or layerwise threshold<br/>
