@@ -1,3 +1,11 @@
+# Learning Compact and Efficient Networks through Explicit Connection Sensitivity Pruning and
+Quantization
+
+Hi! Welcome to the code for our project! We perform pruning followed by quantization to obtain compact and efficient Deep Neural Networks! The following figure serves as a high-level representation of our work.
+
+![image](https://user-images.githubusercontent.com/37202614/118072436-c86d0480-b377-11eb-881e-1a6d4bb8f7dc.png)
+
+
 # Pruning Module
 
 # Reference:  
@@ -9,7 +17,7 @@ C. Done Layerwise and global pruning.<br/>
 # Single Shot Network Pruning:
 A short description of our approach can be found below:
 
-![image](https://user-images.githubusercontent.com/37202614/118071422-bbe7ac80-b375-11eb-9c3a-447c56bca7c4.png)
+
 
 
 Train the model on first batch of the dataset<br/>
