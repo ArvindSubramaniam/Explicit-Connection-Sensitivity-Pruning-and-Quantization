@@ -32,7 +32,7 @@ B. Even though referenced implementation is done from scratch.<br/>
 C. Done Layerwise and global pruning.<br/>
 
 
-# Explicit Connection Sensitivity Pruning:
+# Explicit Connection Sensitivity Pruning (ECS):
 
 Our approach uses both weights and gradients to decide which parameters are redundant. After training the model for 1 epoch, we jointly exploit information from the weights and the gradients. Only parameters with a low weight magnitude and a low gradient magnitude are deemed unimpportant and removed. For instance, as shown in the figure below, a parameter with a low weight magnitude but a high gradient magnitude is still considered important.
 
@@ -40,7 +40,7 @@ Our approach uses both weights and gradients to decide which parameters are redu
 
 
 
-# Running baseline models:
+# Running Pruning (Baseline and ECS):
 ```
 models:                         --model : ["VGG16", "ResNet34", "ResNet50"] :default - VGG16 <br/> 
 datasets:                     --dataset :["CIFAR10", "CIFAR100"] : default - CIFAR10<br/> 
