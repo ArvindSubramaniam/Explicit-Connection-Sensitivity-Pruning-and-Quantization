@@ -7,6 +7,11 @@ C. Done Layerwise and global pruning.<br/>
 
 
 # Single Shot Network Pruning:
+A short description of our approach can be found below:
+
+![image](https://user-images.githubusercontent.com/37202614/118071422-bbe7ac80-b375-11eb-9c3a-447c56bca7c4.png)
+
+
 Train the model on first batch of the dataset<br/>
 create a mask based on the global threshold or layerwise threshold<br/>
 Use this mask for the rest of the batches in all epochs.
