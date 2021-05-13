@@ -2,26 +2,6 @@
 
 Hi! Welcome to the code for our project! We perform pruning followed by quantization to obtain compact and efficient Deep Neural Networks! For more details, please refer our Project report.
 
-
-The following figure serves as a high-level representation of our work.
-
-![image](https://user-images.githubusercontent.com/37202614/118072436-c86d0480-b377-11eb-881e-1a6d4bb8f7dc.png)
-
-
-# Pruning Module
-
-# Baseline:  
-A. SNIP Paper implementation: "https://github.com/mil-ad/snip" (This is not the official implementation, but its the one we referred)<br/> 
-B. Even though referenced implementation is done from scratch.<br/> 
-C. Done Layerwise and global pruning.<br/>
-
-
-# Explicit Connection Sensitivity Pruning:
-
-Our approach uses both weights and gradients to decide which parameters are redundant. After training the model for 1 epoch, we jointly exploit information from the weights and the gradients. Only parameters with a low weight magnitude and a low gradient magnitude are deemed unimpportant and removed. For instance, as shown in the figure below, a parameter with a low weight magnitude but a high gradient magnitude is still considered important.
-
-![image](https://user-images.githubusercontent.com/37202614/118072561-14b84480-b378-11eb-9c67-f8f8ec9c80d1.png)
-
 Pruning File Structure
 
 ```
@@ -41,6 +21,25 @@ src
 Train the model on first batch of the dataset<br/>
 create a mask based on the global threshold or layerwise threshold<br/>
 Use this mask for the rest of the batches in all epochs.
+
+The following figure serves as a high-level representation of our work.
+
+![image](https://user-images.githubusercontent.com/37202614/118072436-c86d0480-b377-11eb-881e-1a6d4bb8f7dc.png)
+
+
+# Pruning Module
+
+# Baseline:  
+A. SNIP Paper implementation: "https://github.com/mil-ad/snip" (This is not the official implementation, but its the one we referred)<br/> 
+B. Even though referenced implementation is done from scratch.<br/> 
+C. Done Layerwise and global pruning.<br/>
+
+
+# Explicit Connection Sensitivity Pruning:
+
+Our approach uses both weights and gradients to decide which parameters are redundant. After training the model for 1 epoch, we jointly exploit information from the weights and the gradients. Only parameters with a low weight magnitude and a low gradient magnitude are deemed unimpportant and removed. For instance, as shown in the figure below, a parameter with a low weight magnitude but a high gradient magnitude is still considered important.
+
+![image](https://user-images.githubusercontent.com/37202614/118072561-14b84480-b378-11eb-9c67-f8f8ec9c80d1.png)
 
 
 
