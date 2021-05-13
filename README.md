@@ -13,14 +13,11 @@ src
        └── main.py        
 ```
  
- ```ECS.py``` - Code for our pruning approach.
- ```baseline.py``` - Code for the baseline pruning approach (SNIP).
- ```train.py``` - Code for training and testing models.
- ```main.py``` - Code for running pruning (SNIP and oour approach).
+ ```ECS.py``` - Code for our pruning approach.<br/>
+ ```baseline.py``` - Code for the baseline pruning approach (SNIP).<br/>
+ ```train.py``` - Code for training and testing models.<br/>
+ ```main.py``` - Code for running pruning (SNIP and oour approach).<br/>
 
-Train the model on first batch of the dataset<br/>
-create a mask based on the global threshold or layerwise threshold<br/>
-Use this mask for the rest of the batches in all epochs.
 
 The following figure serves as a high-level representation of our work.
 
