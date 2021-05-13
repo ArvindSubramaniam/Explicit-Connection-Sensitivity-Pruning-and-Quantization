@@ -16,7 +16,7 @@ C. Done Layerwise and global pruning.<br/>
 
 # Explicit Connection Sensitivity Pruning:
 
-Our approach uses both weights and gradients to decide which parameters are redundant. 
+Our approach uses both weights and gradients to decide which parameters are redundant. After training the model for 1 epoch, we jointly exploit information from the weights and the gradients. Only parameters with a low weight magnitude and a low gradient magnitude are deemed unimpportant and removed.
 
 ![image](https://user-images.githubusercontent.com/37202614/118072561-14b84480-b378-11eb-9c67-f8f8ec9c80d1.png)
 
