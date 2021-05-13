@@ -10,7 +10,15 @@ src
        ├── ECS.py
        ├── baseline.py
        ├── train.py          
-       └── main.py        
+       └── main.py  
+       
+└── quantization
+       ├── QuantizeNetwork.py 
+       ├── Quantization_and_testing.ipynb      
+       
+└── visualization
+       ├── VisualizeNetwork.py 
+       ├── visualization_model_test.ipynb      
 ```
  
  ```ECS.py``` - Code for our pruning approach.<br/>
@@ -113,7 +121,7 @@ Note: Detail results are present in the visualization_model_test.ipynb notebook
 # Running the Visualization Module
 ```
    # import the module using 
-   # from quantization import VisualizeNetwork
+   # from visualization import VisualizeNetwork
    
    v_net = VisualizeNetwork()
    
