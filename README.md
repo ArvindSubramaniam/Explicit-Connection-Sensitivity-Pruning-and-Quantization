@@ -8,7 +8,7 @@ Hi! Welcome to the code for our project! We perform pruning followed by quantiza
 # Pruning Module
 
 # Reference:  
-A. SNIP Paper implementation: "https://github.com/mil-ad/snip"<br/> (This is not the official implementation, but its the one we referred)
+A. SNIP Paper implementation: "https://github.com/mil-ad/snip" (This is not the official implementation, but its the one we referred)<br/> 
 B. Even though referenced implementation is done from scratch.<br/> 
 C. Done Layerwise and global pruning.<br/>
 
