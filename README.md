@@ -1,6 +1,9 @@
 # Learning Compact and Efficient Networks through Explicit Connection Sensitivity Pruning and Quantization
 
-Hi! Welcome to the code for our project! We perform pruning followed by quantization to obtain compact and efficient Deep Neural Networks! The following figure serves as a high-level representation of our work.
+Hi! Welcome to the code for our project! We perform pruning followed by quantization to obtain compact and efficient Deep Neural Networks! For more details, please refer our Project report.
+
+
+The following figure serves as a high-level representation of our work.
 
 ![image](https://user-images.githubusercontent.com/37202614/118072436-c86d0480-b377-11eb-881e-1a6d4bb8f7dc.png)
 
