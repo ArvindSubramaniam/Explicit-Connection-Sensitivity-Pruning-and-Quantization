@@ -14,8 +14,12 @@ B. Even though referenced implementation is done from scratch.<br/>
 C. Done Layerwise and global pruning.<br/>
 
 
-# Single Shot Network Pruning:
-A short description of our approach can be found below:
+# Explicit Connection Sensitivity Pruning:
+
+Our approach uses both weights and gradients to decide which parameters are redundant. 
+
+![image](https://user-images.githubusercontent.com/37202614/118072561-14b84480-b378-11eb-9c67-f8f8ec9c80d1.png)
+
 
 
 
