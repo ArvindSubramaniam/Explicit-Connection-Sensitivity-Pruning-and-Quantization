@@ -12,6 +12,7 @@ Use this mask for the rest of the batches in all epochs.
 
 
 # Running baseline models:
+```
 models:                         --model : ["VGG16", "ResNet34", "ResNet50"] :default - VGG16 <br/> 
 datasets:                     --dataset :["CIFAR10", "CIFAR100"] : default - CIFAR10<br/> 
 pruning type(global/layerwise): --prunetype: [True, False]  : default - False # layerwise pruning is not the default instead global pruning is default<br/> 
@@ -25,4 +26,5 @@ retaining weight fraction:      --retrain                     :default - 0.05(on
 Run command:<br/>   
 E.g.:<br/>   
 python3 baseline.py --model = "ResNet34" --dataset="CIFAR10"<br/> 
+```
 
