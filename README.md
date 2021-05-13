@@ -21,11 +21,9 @@ src
 
 The following figure serves as a high-level representation of our work.
 
-```
-<p align="center">
+
 ![image](https://user-images.githubusercontent.com/37202614/118072436-c86d0480-b377-11eb-881e-1a6d4bb8f7dc.png)
-<\p>
-```
+
 # Pruning Module
 
 # Baseline:  
