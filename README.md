@@ -2,7 +2,7 @@
 
 Hi! Welcome to the code for our project! We perform pruning followed by quantization to obtain compact and efficient Deep Neural Networks! For more details, please refer our Project report.
 
-Pruning File Structure
+File Structure
 
 ```
 src
