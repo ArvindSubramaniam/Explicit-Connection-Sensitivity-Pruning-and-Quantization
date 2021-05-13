@@ -13,45 +13,79 @@ import os
 from models import *
 from ECS import *
 
+import argparse
+
+
+mod_choices = ["VGG16", "ResNet34", "ResNet50"]
+dataset_choices = ["CIFAR10", "CIFAR100"]
+
+
+parser = argparse.ArgumentParser(description="Arguments to run a specific model on a specific dataset")
+parser.add_argument('--model', choices=mod_choices, default = "VGG16", help='chosen model'+'Options:'+str(mod_choices))
+parser.add_argument('--dataset', choices=dataset_choices, default = "CIFAR10", help='chosen dataset'+'Options:'+str(dataset_choices))
+parser.add_argument('--prunetype', choices = layer_wise, default = False, help = 'pruning type_global or layer_wise'+ str(layer_wise))
+parser.add_argument('--epochs',  default = 70, help = 'number of epochs')
+parser.add_argument('--lr', default = 0.1, help= 'learning rate')
+parser.add_argument('--retain', default= 0.05, help= 'how much weights are retained')
+parser.add_argument('--step', default= 20, help = 'step_size')
+parser.add_argument('--weightdecay', default = 0.0005, help='weight_decay')
+parser.add_argument('--batchsize', default = 128, help = 'batch_size')
+parser.add_argument('--compression', default = 5, help = 'Compression ratio')
+
 def network_init():
     
     
-  model = VGG16([ 64, 64, 'M', 128, 128, 'M', 256, 256, 256, 'M', 512, 512, 512, 'M',
-       512, 512, 512, 'M'
-   ])
+  model = args.model
   # model = resnet34().cuda()
   # model = AlexNet()
-  optimiser = optim.SGD( model.parameters(), lr=lr, momentum=0.9, weight_decay=weight_decay)
+  optimiser = optim.SGD( model.parameters(), lr=args.lr, momentum=0.9, weight_decay=args.weightdecay)
   scheduler = optim.lr_scheduler.StepLR(optimiser, lr_decay_interval, gamma=0.1)
 
 
-  train_transform = transforms.Compose([
-      transforms.RandomCrop(32, padding=4),
-      transforms.RandomHorizontalFlip(),
-      transforms.ToTensor(),
-      transforms.Normalize((0.4914, 0.4822, 0.4465),
-                          (0.2023, 0.1994, 0.2010)),
-  ])
+  
+  if args.dataset == 'CIFAR10':
+    train_transform = transforms.Compose([
+          transforms.RandomCrop(32, padding=4),
+          transforms.RandomHorizontalFlip(),
+          transforms.ToTensor(),
+          transforms.Normalize((0.4914, 0.4822, 0.4465),
+                              (0.2023, 0.1994, 0.2010)),
+      ])
 
-  test_transform = transforms.Compose([
-      transforms.RandomCrop(32, padding=4),
-      transforms.ToTensor(),
-      transforms.Normalize((0.4914, 0.4822, 0.4465),
-                          (0.2023, 0.1994, 0.2010)),
-  ])
+      test_transform = transforms.Compose([
+          transforms.RandomCrop(32, padding=4),
+          transforms.ToTensor(),
+          transforms.Normalize((0.4914, 0.4822, 0.4465),
+                              (0.2023, 0.1994, 0.2010)),
+      ])
+      train_dataset = CIFAR10('_dataset', True, train_transform, download=True)
+      test_dataset = CIFAR10('_dataset', False, test_transform, download=False)
+  else:
+      train_transform = transforms.Compose([
+          transforms.RandomCrop(32, padding=4),
+          transforms.RandomHorizontalFlip(),
+          transforms.ToTensor(),
+          transforms.Normalize(mean=[x/255.0 for x in [129.3, 124.1, 112.4]],
+                               std=[x/255.0 for x in [68.2, 65.4, 70.4]])])
 
-  train_dataset = CIFAR10('_dataset', True, train_transform, download=True)
-  test_dataset = CIFAR10('_dataset', False, test_transform, download=False)
+      test_transform = transforms.Compose([
+          transforms.RandomCrop(32, padding=4),
+          transforms.ToTensor(),
+          transforms.Normalize(mean=[x/255.0 for x in [129.3, 124.1, 112.4]],
+                               std=[x/255.0 for x in [68.2, 65.4, 70.4]])])
 
-  train_loader = DataLoader( train_dataset, batch_size, shuffle=True, num_workers=2, pin_memory=True)
-  val_loader = DataLoader( test_dataset, batch_size, shuffle=False, num_workers=2, pin_memory=True)
+      train_dataset = CIFAR100('_dataset', True, train_transform, download=True)
+      test_dataset = CIFAR100('_dataset', False, test_transform, download=False)
+
+  train_loader = DataLoader(train_dataset, args.batchsize, shuffle=True, num_workers=2, pin_memory=True)
+  val_loader = DataLoader(test_dataset, args.batchsize, shuffle=False, num_workers=2, pin_memory=True)
 
   return model, optimiser, scheduler, train_loader, val_loader
 
 
 model, optimiser, lr_scheduler, train_loader, val_loader = network_init()
 model = model.to(device)
-density = 5
+density = int(100/args.compression)
 criterion = nn.CrossEntropyLoss()
 
 train_loss = training(1, model, optimiser, lr_scheduler, criterion, device,train_loader)
