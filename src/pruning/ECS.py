@@ -3,7 +3,7 @@ import torch.nn as nn
 import numpy as np
 
 ''' Forms the final mask by a logical OR of the gradient mask and the weight mask '''
-def ECS(model, density):
+def pruning(model, density):
 
     grad_list, mask, weight_list = [], [], []
     for m in model.modules():
